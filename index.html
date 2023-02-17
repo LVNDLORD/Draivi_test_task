@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Andrii Deshko - Test Task</title>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <header class="header">
+            <div class="header__container">
+                <nav class="navbar">
+                    <a href="#" class="nav-branding">
+                        <img src="images/logo.webp" class="header__img" alt="logo">
+                    </a>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Our Media</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section class="intro">
+            <div class="intro__container__wrapper">
+                <div class="intro__sections-item">
+                    <div class="intro-section-group">
+                        <h1>Leading Performance <span>Marketing Company</span> with <span>Fintech Industry Focus</span>
+                        </h1>
+                        <h2>We help our partners in online customer acquisition</h2>
+                        <a href="#" class="intro__button button">Let's partner</a>
+                    </div>
+                </div>
+
+                <div class="intro__sections-item">
+                    <div class="intro__section-promo">
+                        <div class="intro__section-item-left">
+                            <img src="images/main.webp" class="intro__img" alt="intro-img">
+                            <p>Contact us now and get <span>10% off<br></span> deal before Christmas</p>
+                        </div>
+                        <div class="intro__section-item-right">
+                            <div class="list">
+                                <p class="list-title">Christmas<br> countdown</p>
+                                <p class="to-xmas">Days:</p>
+                                <div class="countdown days"></div>
+                                <p class="to-xmas">Hours:</p>
+                                <div class="countdown hours"></div>
+                                <p class="to-xmas">Minutes:</p>
+                                <div class="countdown minutes"></div>
+                                <p class="to-xmas">Seconds:</p>
+                                <div class="countdown seconds"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <script>
+                // as requested - inline countdownd until Christmas 
+                function updateCountdown() {
+
+                    const currTime = new Date();
+                    const christmas = new Date(currTime.getFullYear(), 11, 25);
+                    if (currTime.getTime() > christmas.getTime()) {
+                        christmas.setFullYear(christmas.getFullYear() + 1);
+                    };
+
+                    const timeDifference = christmas.getTime() - currTime.getTime();
+                    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                    // countdown update
+                    const daysEl = document.querySelector('.days');
+                    const hoursEl = document.querySelector('.hours');
+                    const minsEl = document.querySelector('.minutes');
+                    const secsEl = document.querySelector('.seconds');
+
+                    daysEl.innerHTML = `${days}`;
+                    hoursEl.innerHTML = `${hours}`;
+                    minsEl.innerHTML = `${minutes}`;
+                    secsEl.innerHTML = `${seconds}`;
+                }
+
+                setInterval(updateCountdown, 1000);
+            </script>
+        </section>
+
+        <section class="reasons__block">
+            <!-- #5b9cdd -->
+            <div class="reasons__container">
+                <div class="reasons__inner-container">
+                    <h2 class="reasons__title">Reasons to become our partner</h2>
+                    <div class="reasons__items__wrapper">
+                        <div class="reasons__item">
+                            <img src="images/customer.webp" class="bg-icon" alt="" srcset="">
+                            <h3>New customers</h3>
+                            <p>We acquire high-quality customers through our online lead generation funnels all around
+                                Europe
+                            </p>
+                        </div>
+                        <div class="reasons__item">
+                            <img src="images/robot.webp" class="bg-icon" alt="" srcset="">
+                            <h3>Intelligently</h3>
+                            <p>We utilize data and different marketing technologies efficiently in all our solutions</p>
+                        </div>
+                        <div class="reasons__item">
+                            <img src="images/wheel.webp" class="bg-icon" alt="" srcset="">
+                            <h3>Performance-based</h3>
+                            <p>Measurable and trackable results with ROl. Pay for the actual results</p>
+                        </div>
+                        <div class="reasons__item">
+                            <img src="images/thumb.webp" class="bg-icon" alt="" srcset="">
+                            <h3>Professionally</h3>
+                            <p>We are a professional and agile partner with years of experience in online campaigns</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- <script src="js/script.js"></script> -->
+</body>
+
+</html>
